@@ -1,0 +1,6 @@
+<form (ngSubmit)="searchSubmit()" class="search-form">
+        <mat-form-field class="search-input" appearance="fill">
+            <mat-label>Search a pokemon</mat-label>
+            <input autocomplete="off" matInput placeholder="Search a Pokemon" [formControl]="pokemon">
+        </mat-form-field>
+</form>
