@@ -1,13 +1,22 @@
-<section class="card-index">
-    <div *ngFor="let pokemonItem of pokemonIndex">
-        <div class="card-container">
-            <div class="pokemon-info">
-                <p>#{{pokemonItem.order}}</p>
-                <h3 class="pokemon-name">{{pokemonItem.name}}</h3>
-            </div>
-            <div class="img-container">
-            <img class="pokemon-img" src="{{getImg(pokemonItem.name)}}" />
+<div *ngIf="pokemonIndex.length > 9; then thenBlock"></div>
+<ng-template #thenBlock>
+    <section class="card-index">
+        <div *ngFor="let pokemonItem of pokemonIndex | paginate:page_size:page_number">
+            <div [ngStyle]="{background: pokemonItem.types[0].type.name | background}" class="card-container">
+                <div class="pokemon-info">
+                    <p>#{{pokemonItem.order}}</p>
+                    <h3 class="pokemon-name">{{pokemonItem.name}}</h3>
+                </div>
+                <div class="img-container">
+                <img class="pokemon-img" src="{{getImg(pokemonItem.name)}}" />
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <mat-paginator [length]="pokemonIndex.length"
+                [pageSize]="page_size"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="handlePage($event)">
+    </mat-paginator>
+</ng-template>
