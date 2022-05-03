@@ -31,7 +31,7 @@ export class BackgroundPipe implements PipeTransform {
       case 'grass':
         return '#74CB48';
       case 'electric':
-        return '#70559B';
+        return '#F9CF30';
       case 'psychic':
         return '#FB5584';
       case 'ice':

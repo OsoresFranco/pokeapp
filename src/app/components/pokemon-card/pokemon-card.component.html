@@ -2,7 +2,7 @@
 <ng-template #thenBlock>
     <section class="card-index">
         <div *ngFor="let pokemonItem of pokemonIndex | paginate:page_size:page_number">
-            <div [ngStyle]="{background: pokemonItem.types[0].type.name | background}" class="card-container">
+            <div (click)="openDialog(pokemonItem)" [ngStyle]="{background: pokemonItem.types[0].type.name | background}" class="card-container">
                 <div class="pokemon-info">
                     <p>#{{pokemonItem.order}}</p>
                     <h3 class="pokemon-name">{{pokemonItem.name}}</h3>

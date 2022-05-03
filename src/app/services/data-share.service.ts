@@ -7,10 +7,10 @@ import { BehaviorSubject } from 'rxjs';
 export class DataShareService {
 
   private pokemonIndex = new BehaviorSubject<any>([]);
-  private pokemonNames = new BehaviorSubject<any>([]);
+  private pokemonModal = new BehaviorSubject<any>([]);
 
   currentPokemonIndex = this.pokemonIndex.asObservable();
-  currentPokemonNames = this.pokemonNames.asObservable();
+  currentPokemonModal = this.pokemonModal.asObservable();
 
   constructor() { }
 
@@ -18,7 +18,7 @@ export class DataShareService {
     this.pokemonIndex.next(newPokemonIndex);
   }
 
-  changepokemonNames(newPokemonNames:any[]) {
-    this.pokemonNames.next(newPokemonNames);
+  changepokemonModal(newPokemonId:any) {
+    this.pokemonModal.next(newPokemonId);
   }
 }

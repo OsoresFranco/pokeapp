@@ -1,0 +1,82 @@
+<h2 mat-dialog-title>Pokemon Info</h2>
+<mat-dialog-content>
+  <div
+    class="modal-background"
+    [ngStyle]="{ background: pokemonModal.types[0].type.name | background }"
+  >
+    <img class="modal-img" src="{{ getImg(pokemonModal.name) }}" />
+  </div>
+  <div class="modal-type">
+    <div *ngFor="let types of pokemonModal.types">
+      <img class="types-img" src="{{ getType(types.type.name) }}" />
+    </div>
+  </div>
+  <div class="modal-about-section">
+    <h4
+      class="about-title"
+      [ngStyle]="{ color: pokemonModal.types[0].type.name | background }"
+    >
+      About
+    </h4>
+    <div class="about-stats">
+      <div class="about-height-container">
+        <div class="about-stat-container">
+          <img src="../../../assets/icons/stats/Height.svg" alt="Height" />
+          <p>{{ pokemonModal.height }}</p>
+        </div>
+        <h5>Height</h5>
+      </div>
+      <div class="vl"></div>
+      <div class="about-height-container">
+        <div class="about-stat-container">
+          <img src="../../../assets/icons/stats/Weight.svg" alt="Weight" />
+          <p>{{ pokemonModal.weight }}</p>
+        </div>
+        <h5>Weight</h5>
+      </div>
+      <div class="vl"></div>
+      <div class="about-moves-container">
+        <div class="about-move-container">
+          <p class="move">{{ pokemonModal.abilities[0].ability.name }}</p>
+          <p class="move">{{ pokemonModal.abilities[1].ability.name }}</p>
+        </div>
+        <h5>Moves</h5>
+      </div>
+    </div>
+    <h4
+      class="base-stats-title"
+      [ngStyle]="{ color: pokemonModal.types[0].type.name | background }"
+    >
+      Base Stats
+    </h4>
+    <div class="base-stats-conatiner">
+      <div class="base-stat-container">
+        <h6>Hp</h6>
+        <mat-progress-bar mode="determinate" value={{pokemonModal.stats[0].base_stat}}></mat-progress-bar>
+      </div>
+      <div class="base-stat-container">
+        <h6>Attack</h6>
+        <mat-progress-bar mode="determinate" value={{pokemonModal.stats[1].base_stat}}></mat-progress-bar>
+      </div>
+      <div class="base-stat-container">
+        <h6>Defense</h6>
+        <mat-progress-bar mode="determinate" value={{pokemonModal.stats[2].base_stat}}></mat-progress-bar>
+      </div>
+      <div class="base-stat-container">
+        <h6>Esp Atk</h6>
+        <mat-progress-bar mode="determinate" value={{pokemonModal.stats[3].base_stat}}></mat-progress-bar>
+      </div>
+      <div class="base-stat-container">
+        <h6>Esp Def</h6>
+        <mat-progress-bar mode="determinate" value={{pokemonModal.stats[4].base_stat}}></mat-progress-bar>
+      </div>
+      <div class="base-stat-container">
+        <h6>Speed</h6>
+        <mat-progress-bar mode="determinate" value={{pokemonModal.stats[5].base_stat}}></mat-progress-bar>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

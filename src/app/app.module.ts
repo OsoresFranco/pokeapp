@@ -4,7 +4,8 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { BackgroundPipe } from './pipes/background.pipe';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     NavbarComponent,
     PokemonCardComponent,
     BackgroundPipe,
-    PaginatePipe
+    PaginatePipe,
+    PokemonModalComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     FormsModule,
     HttpClientModule,
     MatPaginatorModule,
-    MatAutocompleteModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

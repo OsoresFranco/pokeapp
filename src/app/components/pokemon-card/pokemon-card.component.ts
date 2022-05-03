@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { DataShareService } from 'src/app/services/data-share.service';
 import { PokemonSearchService } from 'src/app/services/pokemon-search.service';
+import {MatDialog} from '@angular/material/dialog';
+import { PokemonModalComponent } from '../pokemon-modal/pokemon-modal.component'
+
 
 @Component({
   selector: 'app-pokemon-card',
@@ -10,6 +13,11 @@ import { PokemonSearchService } from 'src/app/services/pokemon-search.service';
 })
 export class PokemonCardComponent implements OnInit{
 
+  openDialog(pokemonItem:any){
+    this.data.changepokemonModal(pokemonItem);
+    this.dialog.open(PokemonModalComponent);
+  }
+
   pokemonIndex:any[] = [];
 
   getImg(name:string){
@@ -17,7 +25,7 @@ export class PokemonCardComponent implements OnInit{
     return `https://projectpokemon.org/images/normal-sprite/${normalizedName}.gif`
   }
 
-  constructor(private data:DataShareService, private http:PokemonSearchService) { }
+  constructor(private data:DataShareService, private http:PokemonSearchService, public dialog: MatDialog) { }
 
   page_size:number = 9;
   page_number:number = 1;
